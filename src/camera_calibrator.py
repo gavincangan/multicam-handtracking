@@ -6,9 +6,6 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.nn import functional as F
-import numpy as np
-from scipy.spatial.transform import Rotation
-import numpy as n
 
 from .constants import *
 from .hand_tracker import PytorchHandModel
