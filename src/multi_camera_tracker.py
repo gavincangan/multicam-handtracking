@@ -63,6 +63,7 @@ class EnhancedMultiCameraHandTracker:
         self.state = "INITIALIZING"  # or CALIBRATING, TRACKING
         self.running = False
         self.calibration_start_time = None
+        self.last_position_print_time = 0  # Track when we last printed the position
         
         # Visualizer
         self.visualizer = HandVisualizer3D() if show_visualizations else None
@@ -128,10 +129,23 @@ class EnhancedMultiCameraHandTracker:
                     self.calibrator.get_transform_matrix(i) for i in range(self.num_cameras)
                 ]
                 fused_pose = self.pose_fuser.update(observations, camera_transforms)
-                if fused_pose is not None and self.visualizer is not None:
+                if fused_pose is not None:
                     # Get landmarks in fused world space
                     landmarks_3d = self.pose_fuser.get_hand_landmarks_from_pose(fused_pose)
-                    self.visualizer.update(landmarks_3d, fused_pose, camera_transforms, self.primary_camera_idx)
+                    
+                    # Print hand position every second
+                    current_time = time.time()
+                    if current_time - self.last_position_print_time >= 1.0:
+                        # Extract wrist position (first landmark) as the hand position
+                        if landmarks_3d is not None and len(landmarks_3d) > 0:
+                            wrist_position = landmarks_3d[0]  # First landmark is the wrist
+                            x, y, z = wrist_position
+                            print(f"Hand position: X={x:.4f}, Y={y:.4f}, Z={z:.4f}")
+                        self.last_position_print_time = current_time
+                    
+                    # Update visualizer if available
+                    if self.visualizer is not None:
+                        self.visualizer.update(landmarks_3d, fused_pose, camera_transforms, self.primary_camera_idx)
     
     def process_frame(self, frame, camera_idx, camera_id):
         """
