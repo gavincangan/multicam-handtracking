@@ -185,6 +185,8 @@ class BaseCameraTracker:
             alpha = 0.3  # Transparency factor
             cv2.addWeighted(colored_overlay, alpha, image, 1.0, 0, image)
             
+            # image =cv2.flip(image, 1)
+            
             # Add coverage information
             cv2.putText(
                 image, 
@@ -218,9 +220,10 @@ class BaseCameraTracker:
                     2
                 )
                 
+        
         if self.show:
             # Flip for a mirrored display after all drawing operations
-            self.processed_frame = cv2.flip(image, 1)
+            self.processed_frame = image.copy()
         else:
             self.processed_frame = None
         
