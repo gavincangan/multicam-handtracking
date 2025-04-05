@@ -1,0 +1,30 @@
+cameras:
+- id: 0
+  intrinsics:
+    cx: 640.0
+    cy: 360.0
+    distortion:
+    - 0.05
+    - -0.05
+    - 0.0
+    - 0.0
+    - 0.0
+    fx: 920.5
+    fy: 920.5
+  primary: true
+  type: standard
+- id: oakd_0
+  intrinsics:
+    cx: 630.2899780273438
+    cy: 363.3753356933594
+    distortion:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    fx: 1037.05517578125
+    fy: 1037.12353515625
+  mxid: 19443010914B9A2E00
+  primary: false
+  type: oakd
