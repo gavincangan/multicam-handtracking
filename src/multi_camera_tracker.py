@@ -145,7 +145,7 @@ class EnhancedMultiCameraHandTracker:
                     
                     # Update visualizer if available
                     if self.visualizer is not None:
-                        self.visualizer.update(landmarks_3d, fused_pose, camera_transforms, self.primary_camera_idx)
+                        self.visualizer.update(landmarks_3d, fused_pose) #, camera_transforms, self.primary_camera_idx)
     
     def process_frame(self, frame, camera_idx, camera_id):
         """

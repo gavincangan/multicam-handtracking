@@ -101,7 +101,7 @@ class HandVisualizer3D:
         
         # Pose axes
         origin = pose[:3, 3]
-        axis_len = 0.1
+        axis_len = 0.5
         x_axis = origin + axis_len * pose[:3, 0]
         y_axis = origin + axis_len * pose[:3, 1]
         z_axis = origin + axis_len * pose[:3, 2]
