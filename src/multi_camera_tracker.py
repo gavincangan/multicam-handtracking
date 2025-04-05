@@ -193,7 +193,7 @@ class EnhancedMultiCameraHandTracker:
             )
             
             # Flip this text image horizontally
-            text_img = cv2.flip(text_img, 1)
+            # text_img = cv2.flip(text_img, 1)
             
             # Calculate position to place the text image
             text_x = (w - text_img.shape[1]) // 2
@@ -247,7 +247,7 @@ class EnhancedMultiCameraHandTracker:
             )
             
             # Flip this text image horizontally
-            text_img = cv2.flip(text_img, 1)
+            # text_img = cv2.flip(text_img, 1)
             
             # Calculate position to place the text image
             text_x = (w - text_img.shape[1]) // 2
