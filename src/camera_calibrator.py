@@ -7,7 +7,9 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.nn import functional as F
 
-from constants import *
+from .constants import *
+from .hand_tracker import PytorchHandModel
+
 
 class PyTorchCameraCalibrator:
     """Camera calibration using PyTorch for differentiable optimization."""

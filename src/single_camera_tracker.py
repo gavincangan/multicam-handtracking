@@ -2,8 +2,10 @@ import cv2
 import threading
 import time
 import mediapipe as mp
-from base_camera_tracker import BaseCameraTracker
-from constants import *
+
+from .base_camera_tracker import BaseCameraTracker
+from .constants import *
+
 
 class SingleCameraTracker(BaseCameraTracker):
     """Handles tracking for a single standard webcam."""

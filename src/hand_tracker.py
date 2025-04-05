@@ -5,7 +5,8 @@
 
 import torch
 import torch.nn as nn
-from constants import *
+
+from .constants import *
 
 class PytorchHandModel(nn.Module):
     """

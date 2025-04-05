@@ -22,7 +22,7 @@ MAX_CALIBRATION_SAMPLES = 500  # Maximum samples to collect for calibration
 NUM_PARTICLES = 1000  # Number of particles for particle filter
 PARTICLE_NOISE_POSITION = 0.01  # Noise level for particle position updates
 PARTICLE_NOISE_ROTATION = 0.05  # Noise level for particle rotation updates
-CONFIG_PATH = "config/camera_config.yaml"  # Path to camera configuration file
+CONFIG_PATH = "./src/config/camera_config.yaml"  # Path to camera configuration file
 
 # Hand keypoint indices from MediaPipe
 WRIST_IDX       = 0

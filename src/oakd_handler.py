@@ -2,7 +2,11 @@
 #  OAK-D Camera Support
 ##################################################################
 
-from base_camera_tracker import BaseCameraTracker
+import time
+import threading
+
+from .constants import *
+from .base_camera_tracker import BaseCameraTracker
 
 try:
     import depthai as dai
@@ -68,7 +72,7 @@ try:
                 print(f"Error getting OAK-D camera intrinsics: {e}")
                 return OAKD_DEFAULT_INTRINSICS.copy()
     
-    class OAKDCameraTracker(CameraTracker):
+    class OAKDCameraTracker(BaseCameraTracker):
         """Handles tracking for an OAK-D camera."""
         
         def __init__(self, device_info, index, intrinsics=None,

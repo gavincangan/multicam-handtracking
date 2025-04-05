@@ -3,9 +3,11 @@
 ##################################################################
 
 import yaml
-from constants import *
 import os
 import cv2
+
+from .constants import *
+
 
 def create_default_config():
     """Create a default camera config file for up to MAX_CAMERAS standard webcams."""

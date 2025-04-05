@@ -7,10 +7,10 @@ import torch
 from scipy.spatial.transform import Rotation
 from collections import deque
 
-from hand_tracker import PytorchHandModel
-from gpu_particle_filter import GPUParticleFilter
-from constants import *
-from camera_calibrator import PyTorchCameraCalibrator
+from .hand_tracker import PytorchHandModel
+from .gpu_particle_filter import GPUParticleFilter
+from .constants import *
+from .camera_calibrator import PyTorchCameraCalibrator
 
 class EnhancedHandPoseFuser:
     """Fuses hand poses from multiple cameras using a GPU particle filter."""

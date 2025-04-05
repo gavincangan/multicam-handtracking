@@ -13,8 +13,8 @@ import mediapipe as mp
 import mediapipe.python.solutions.drawing_utils as mp_drawing
 import mediapipe.python.solutions.drawing_styles as mp_drawing_styles
 
-from constants import *
-from camera_config import CameraConfig
+from .constants import *
+from .camera_config import CameraConfig
 
 
 class BaseCameraTracker:

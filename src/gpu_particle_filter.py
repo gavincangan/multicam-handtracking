@@ -6,8 +6,8 @@ import torch
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-from hand_tracker import PytorchHandModel
-from constants import *
+from .hand_tracker import PytorchHandModel
+from .constants import *
 
 class GPUParticleFilter:
     """GPU-accelerated particle filter for hand pose estimation."""
