@@ -10,7 +10,7 @@ from .constants import *
 
 
 def create_default_config():
-    """Create a default camera config file for up to MAX_CAMERAS standard webcams."""
+    """Create a default camera config file for all available cameras, with built-in as primary."""
     config = {"cameras": []}
     
     # Probe system for available cameras
@@ -21,17 +21,40 @@ def create_default_config():
             available.append(i)
             cap.release()
     
-    camera_ids = available[:MAX_CAMERAS]
+    # If no cameras found, return empty config
+    if not available:
+        print("No cameras detected")
+        CameraConfig.save_config(config)
+        return config
+        
+    # Built-in camera is typically the first one (index 0)
+    built_in_camera_idx = 0
+    # First add the built-in camera as primary
+    config["cameras"].append({
+        "id": available[built_in_camera_idx],
+        "primary": True,
+        "type": CAMERA_TYPE_STANDARD,
+        "name": "Built-in Camera",
+        "intrinsics": DEFAULT_INTRINSICS.copy()
+    })
+    
+    # Then add all other cameras as supporting
+    other_cameras = [idx for idx in available if idx != available[built_in_camera_idx]]
+    camera_ids = other_cameras[:MAX_CAMERAS-1]  # Limit to MAX_CAMERAS-1 (since built-in is already added)
+    
     for i, cid in enumerate(camera_ids):
         config["cameras"].append({
             "id": cid,
-            "primary": (i == 0),
+            "primary": False,
             "type": CAMERA_TYPE_STANDARD,
+            "name": f"External Camera {i+1}",
             "intrinsics": DEFAULT_INTRINSICS.copy()
         })
     
     CameraConfig.save_config(config)
-    print(f"Created default configuration with cameras: {camera_ids}")
+    all_camera_ids = [camera["id"] for camera in config["cameras"]]
+    print(f"Created default configuration with built-in camera as primary and {len(all_camera_ids)} total cameras")
+    print(f"Camera IDs: {all_camera_ids}")
     return config
 
 
@@ -47,18 +70,8 @@ class CameraConfig:
             return config
         else:
             print(f"Config file {config_path} not found, using default settings")
-            # Create a default config
-            config = {
-                "cameras": []
-            }
-            for i in range(MAX_CAMERAS):
-                config["cameras"].append({
-                    "id": i,
-                    "type": CAMERA_TYPE_STANDARD,
-                    "primary": i == 0,
-                    "intrinsics": DEFAULT_INTRINSICS.copy()
-                })
-            return config
+            # Create and return a default config by detecting cameras
+            return create_default_config()
             
     @staticmethod
     def save_config(config, config_path=CONFIG_PATH):

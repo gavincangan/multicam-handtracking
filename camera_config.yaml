@@ -1,0 +1,28 @@
+cameras:
+  - id: 0
+    type: "standard"
+    primary: true
+    intrinsics:
+      fx: 1000.0
+      fy: 1000.0
+      cx: 960.0
+      cy: 540.0
+      distortion: [0.0, 0.0, 0.0, 0.0, 0.0]
+  - id: 1
+    type: "standard"
+    primary: false
+    intrinsics:
+      fx: 1000.0
+      fy: 1000.0
+      cx: 960.0
+      cy: 540.0
+      distortion: [0.0, 0.0, 0.0, 0.0, 0.0]
+  - id: 2
+    type: "standard"
+    primary: false
+    intrinsics:
+      fx: 1000.0
+      fy: 1000.0
+      cx: 960.0
+      cy: 540.0
+      distortion: [0.0, 0.0, 0.0, 0.0, 0.0]
