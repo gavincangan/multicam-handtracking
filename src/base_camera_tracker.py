@@ -86,9 +86,7 @@ class BaseCameraTracker:
         # Store the raw frame
         self.frame = image.copy()
         
-        # Flip for a mirrored display
-        if self.show:
-            image = cv2.flip(image, 1)
+        # We'll flip the image at the end after all drawings are done
         
         # Initialize hand coverage mask if needed
         if self.hand_coverage is None:
@@ -221,7 +219,8 @@ class BaseCameraTracker:
                 )
                 
         if self.show:
-            self.processed_frame = image
+            # Flip for a mirrored display after all drawing operations
+            self.processed_frame = cv2.flip(image, 1)
         else:
             self.processed_frame = None
         
