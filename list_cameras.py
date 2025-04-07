@@ -1,3 +1,62 @@
+#!/usr/bin/env python3
+import cv2
+import time
+
+def list_available_cameras():
+    """
+    Checks camera indices 0-9 and prints information about available cameras.
+    """
+    print("Searching for available cameras...")
+    found_cameras = 0
+    
+    for idx in range(10):  # Check indices 0-9
+        print(f"Checking camera index {idx}...", end=" ", flush=True)
+        cap = cv2.VideoCapture(idx)
+        
+        # Small delay to allow camera to initialize
+        time.sleep(0.1)
+        
+        if cap.isOpened():
+            # Get camera properties
+            width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            fps = cap.get(cv2.CAP_PROP_FPS)
+            
+            # Read a test frame
+            ret, frame = cap.read()
+            status = "OK" if ret else "Error reading frame"
+            
+            # Get backend name if possible
+            backend = "Unknown"
+            try:
+                backend = cap.getBackendName()
+            except:
+                pass
+                
+            # Print camera information
+            print("FOUND")
+            print(f"  - Camera {idx}:")
+            print(f"    Resolution: {width}x{height}")
+            print(f"    FPS: {fps}")
+            print(f"    Backend: {backend}")
+            print(f"    Status: {status}")
+            
+            found_cameras += 1
+            
+            # Clean up
+            cap.release()
+        else:
+            print("Not available")
+        
+    print(f"\nFound {found_cameras} camera(s)")
+    return found_cameras
+
+if __name__ == "__main__":
+    print("Camera Detection Tool")
+    print("=====================")
+    num_cameras = list_available_cameras()
+    print("\nTo use these cameras in the calibration stage, run the multi-camera tracker script.")
+
 import cv2
 import time
 

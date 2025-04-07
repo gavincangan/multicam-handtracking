@@ -1,0 +1,30 @@
+{
+    "primary_camera": 0,
+    "cameras": [
+        {
+            "id": 0,
+            "type": "standard",
+            "resolution": [1920, 1080]
+        },
+        {
+            "id": 1,
+            "type": "standard",
+            "resolution": [1920, 1080]
+        },
+        {
+            "id": 2,
+            "type": "standard",
+            "resolution": [1920, 1080]
+        },
+        {
+            "id": 3,
+            "type": "standard",
+            "resolution": [1920, 1080]
+        },
+        {
+            "id": 4,
+            "type": "standard",
+            "resolution": [1920, 1080]
+        }
+    ]
+}

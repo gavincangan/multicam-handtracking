@@ -103,7 +103,7 @@ class PyTorchCameraCalibrator:
         # Example batch_size - ensure it's not larger than our smallest sample set
         min_samples = min(len(samples) for samples in self.calibration_samples)
         batch_size = min(50, min_samples)
-        num_iterations = 200
+        num_iterations = 300
         
         for iteration in range(num_iterations):
             optimizer.zero_grad()

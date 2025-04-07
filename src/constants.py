@@ -17,7 +17,7 @@ mp_hands = mp.solutions.hands
 
 # Constants
 MAX_CAMERAS = 50  # Maximum number of cameras supported
-MIN_CALIBRATION_SAMPLES = 100  # Minimum samples needed for calibration
+MIN_CALIBRATION_SAMPLES = 10  # Minimum samples needed for calibration
 MAX_CALIBRATION_SAMPLES = 500  # Maximum samples to collect for calibration
 NUM_PARTICLES = 500  # Number of particles for particle filter
 PARTICLE_NOISE_POSITION = 0.01  # Noise level for particle position updates

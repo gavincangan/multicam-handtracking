@@ -1,0 +1,79 @@
+{
+  "cameras": [
+    {
+      "id": 0,
+      "type": "standard",
+      "is_primary": true,
+      "intrinsics": {
+        "width": 1920,
+        "height": 1080,
+        "fx": 1000.0,
+        "fy": 1000.0,
+        "cx": 960.0,
+        "cy": 540.0,
+        "distortion_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+      }
+    },
+    {
+      "id": 1,
+      "type": "standard",
+      "is_primary": false,
+      "intrinsics": {
+        "width": 1920,
+        "height": 1080,
+        "fx": 1000.0,
+        "fy": 1000.0,
+        "cx": 960.0,
+        "cy": 540.0,
+        "distortion_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+      }
+    },
+    {
+      "id": 2,
+      "type": "standard",
+      "is_primary": false,
+      "intrinsics": {
+        "width": 1920,
+        "height": 1080,
+        "fx": 1000.0,
+        "fy": 1000.0,
+        "cx": 960.0,
+        "cy": 540.0,
+        "distortion_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+      }
+    },
+    {
+      "id": 3,
+      "type": "standard",
+      "is_primary": false,
+      "intrinsics": {
+        "width": 1920,
+        "height": 1080,
+        "fx": 1000.0,
+        "fy": 1000.0,
+        "cx": 960.0,
+        "cy": 540.0,
+        "distortion_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+      }
+    },
+    {
+      "id": 4,
+      "type": "standard",
+      "is_primary": false,
+      "intrinsics": {
+        "width": 1920,
+        "height": 1080,
+        "fx": 1000.0,
+        "fy": 1000.0,
+        "cx": 960.0,
+        "cy": 540.0,
+        "distortion_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+      }
+    }
+  ],
+  "calibration_settings": {
+    "min_samples": 30,
+    "optimization_iterations": 200
+  }
+}
+
