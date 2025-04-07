@@ -33,7 +33,7 @@ A real-time 3D hand tracking system that utilizes multiple cameras to provide ac
 
 1. Clone the repository:
    ```bash
-   git clone [repository-url]
+   git clone git@github.com:gavincangan/multicam-handtracking.git
    cd multicam-handtracking
    ```
 
